@@ -1,0 +1,103 @@
+/* ===== BANNER PRINCIPAL MOBILE ===== */
+.css-view-g5y9jx .banner-principal {
+  width: 100%;
+  background-color: #ffffff;
+  background-image: url('/src/assets/img/3.jpg'); /* ícones de fundo */
+  background-repeat: repeat;
+  background-size: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  border-bottom: 3px solid #c4520c;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Imagem central do banner */
+.css-view-g5y9jx .banner-principal .img-produto {
+  width: 80%;
+  max-width: 300px;
+  margin: 10px 0;
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* Texto da promoção */
+.css-view-g5y9jx .banner-principal .texto-promocao {
+  text-align: center;
+  color: #c4520c;
+  font-family: "Poppins", sans-serif;
+  margin-top: 10px;
+}
+
+.css-view-g5y9jx .banner-principal .texto-promocao h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #f15a24;
+  margin: 5px 0;
+}
+
+.css-view-g5y9jx .banner-principal .texto-promocao span {
+  display: block;
+  font-size: 1rem;
+  color: #c4520c;
+  font-weight: 600;
+}
+
+.css-view-g5y9jx .banner-principal .texto-promocao small {
+  display: block;
+  font-size: 0.9rem;
+  color: #c4520c;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+/* Cupom */
+.css-view-g5y9jx .banner-principal .cupom {
+  background-color: #fff4e6;
+  color: #f15a24;
+  border: 2px dashed #f15a24;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+/* Efeito sutil no fundo e entrada */
+.css-view-g5y9jx .banner-principal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,200,150,0.1) 50%, rgba(255,255,255,0) 100%);
+  animation: shimmer 3s infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(50%); }
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .css-view-g5y9jx .banner-principal .img-produto {
+    width: 90%;
+  }
+
+  .css-view-g5y9jx .banner-principal .texto-promocao h2 {
+    font-size: 1.9rem;
+  }
+
+  .css-view-g5y9jx .banner-principal .texto-promocao span {
+    font-size: 0.95rem;
+  }
+}

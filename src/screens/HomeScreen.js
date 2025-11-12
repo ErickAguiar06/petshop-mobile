@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { View, Text, Image, TouchableOpacity, FlatList, ScrollView, StyleSheet, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useEffect, useRef, useState } from 'react';
+import { Dimensions, FlatList, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import styles from '../styles/globalStyles';
 import { listarProdutos } from '../utils/api';
 
 const { width } = Dimensions.get('window');
@@ -70,7 +71,12 @@ const HomeScreen = () => {
   ];
 
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+    <ScrollView 
+      contentContainerStyle={styles.scrollContainer}
+      showsVerticalScrollIndicator={false}
+      scrollEventThrottle={16}
+      bounces={true}
+    >
       {/* Header */}
       <View style={styles.header}>
         <Image source={require('../assets/img/4patas.png')} style={styles.logo} />
@@ -277,53 +283,5 @@ const HomeScreen = () => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fffaf0' },
-  header: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#c4520c', padding: 20, paddingTop: 50 },
-  logo: { width: 60, height: 60, borderRadius: 10 },
-  logoText: { color: 'white', fontSize: 18, marginLeft: 10 },
-  nav: { flexDirection: 'row', marginLeft: 'auto' },
-  navText: { color: 'white', marginHorizontal: 10 },
-  hero: { height: 300 },
-  slide: { width, justifyContent: 'center', alignItems: 'center' },
-  carouselImage: { width, height: 300, resizeMode: 'cover' },
-  sectionTitle: { fontSize: 24, textAlign: 'center', margin: 20, color: '#c4520c' },
-  servicosContainer: { paddingHorizontal: 10 },
-  servicoCard: { width: 250, backgroundColor: '#fff', borderRadius: 20, padding: 20, margin: 10, shadowColor: '#000', shadowOpacity: 0.1 },
-  servicoImage: { width: '100%', height: 120, borderRadius: 10 },
-  servicoTitle: { fontSize: 18, fontWeight: 'bold', color: '#5d1da8' },
-  servicoDesc: { fontSize: 14, marginVertical: 10 },
-  btnRoxo: { backgroundColor: '#ffc107', padding: 10, borderRadius: 25, alignItems: 'center' },
-  productsContainer: { paddingHorizontal: 10 },
-  productCard: { width: 250, backgroundColor: '#fff', borderRadius: 16, padding: 20, margin: 10, shadowColor: '#000', shadowOpacity: 0.08 },
-  productImage: { width: '100%', height: 160, resizeMode: 'contain' },
-  productName: { fontSize: 16, fontWeight: 'bold', marginVertical: 10 },
-  productPrice: { fontSize: 20, color: '#c4520c' },
-  banner: { backgroundColor: '#4b0082', padding: 30, margin: 20, borderRadius: 20, alignItems: 'center' },
-  bannerTitle: { color: 'white', fontSize: 24 },
-  highlights: { marginTop: 20 },
-  highlight: { color: 'white', fontSize: 16, marginVertical: 5 },
-  categories: { flexDirection: 'row', justifyContent: 'center', flexWrap: 'wrap' },
-  categoryImage: { width: 150, height: 150, borderRadius: 75, margin: 10 },
-  productsStatic: { flexDirection: 'row', justifyContent: 'center', flexWrap: 'wrap' },
-  productStatic: { width: 200, alignItems: 'center', margin: 10 },
-  productStaticImage: { width: 120, height: 120 },
-  productStaticName: { fontSize: 16, fontWeight: 'bold' },
-  productStaticPrice: { fontSize: 14, color: '#c4520c' },
-  marcas: { flexDirection: 'row', justifyContent: 'center', flexWrap: 'wrap' },
-  marcaImage: { width: 200, height: 300, margin: 10, resizeMode: 'cover' },
-  footer: { backgroundColor: '#000', padding: 20 },
-  footerContainer: { flexDirection: 'row', justifyContent: 'space-around', flexWrap: 'wrap' },
-  footerCol: { flex: 1, minWidth: 200, margin: 10 },
-  footerTitle: { color: '#fff', fontSize: 18, fontWeight: 'bold', marginBottom: 10 },
-  footerLink: { color: '#fff', marginBottom: 5 },
-  socialIcons: { flexDirection: 'row' },
-  socialIcon: { fontSize: 24, marginHorizontal: 5 },
-  footerBottom: { marginTop: 20, alignItems: 'center' },
-  footerText: { color: '#eee', fontSize: 14 },
-  btn: { backgroundColor: '#ffc107', padding: 10, borderRadius: 25, marginTop: 10 },
-  btnText: { color: '#000', textAlign: 'center' },
-});
 
 export default HomeScreen;
